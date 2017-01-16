@@ -81,6 +81,7 @@ Furthermore, memory for mbufs is managed using a reuse pool. This means that onc
 Twemproxy can be configured through a YAML file specified by the -c or --conf-file command-line argument on process start. The configuration file is used to specify the server pools and the servers within each pool that twemproxy manages. The configuration files parses and understands the following keys:
 
 + **listen**: The listening address and port (name:port or ip:port) or an absolute path to sock file (e.g. /var/run/nutcracker.sock) for this server pool.
++ **client_connections**: The maximum number of connections allowed from redis clients. Unlimited by default, though OS-imposed limitations will still apply.
 + **hash**: The name of the hash function. Possible values are:
  + one_at_a_time
  + md5
@@ -245,11 +246,11 @@ https://launchpad.net/~twemproxy/+archive/ubuntu/daily
 + [munin-plugin](https://github.com/eveiga/contrib/tree/nutcracker/plugins/nutcracker)
 + [twemproxy-ganglia-module](https://github.com/ganglia/gmond_python_modules/tree/master/twemproxy)
 + [nagios checks](https://github.com/wanelo/nagios-checks/blob/master/check_twemproxy)
-+ [circunous](https://github.com/wanelo-chef/nad-checks/blob/master/recipes/twemproxy.rb)
++ [circonus](https://github.com/wanelo-chef/nad-checks/blob/master/recipes/twemproxy.rb)
 + [puppet module](https://github.com/wuakitv/puppet-twemproxy)
 + [nutcracker-web](https://github.com/kontera-technologies/nutcracker-web)
 + [redis-twemproxy agent](https://github.com/Stono/redis-twemproxy-agent)
-+ [sensu-metrics](https://github.com/sensu/sensu-community-plugins/blob/master/plugins/twemproxy/twemproxy-metrics.rb)
++ [sensu-metrics](https://github.com/sensu-plugins/sensu-plugins-twemproxy/blob/master/bin/metrics-twemproxy.rb)
 + [redis-mgr](https://github.com/idning/redis-mgr)
 + [smitty for twemproxy failover](https://github.com/areina/smitty)
 + [Beholder, a Python agent for twemproxy failover](https://github.com/Serekh/beholder)
@@ -258,13 +259,14 @@ https://launchpad.net/~twemproxy/+archive/ubuntu/daily
 
 ## Companies using Twemproxy in Production
 + [Twitter](https://twitter.com/)
-+ [Wikimedia](http://www.wikimedia.org/)
++ [Wikimedia](https://www.wikimedia.org/)
 + [Pinterest](http://pinterest.com/)
 + [Snapchat](http://www.snapchat.com/)
 + [Flickr](https://www.flickr.com)
 + [Yahoo!](https://www.yahoo.com)
 + [Tumblr](https://www.tumblr.com/)
 + [Vine](http://vine.co/)
++ [Wayfair](http://www.wayfair.com/)
 + [Kiip](http://www.kiip.me/)
 + [Wuaki.tv](https://wuaki.tv/)
 + [Wanelo](http://wanelo.com/)
@@ -289,6 +291,8 @@ https://launchpad.net/~twemproxy/+archive/ubuntu/daily
 + [Bloomreach](http://bloomreach.com/)
 + [Hootsuite](https://hootsuite.com)
 + [Tradesy](https://www.tradesy.com/)
++ [Uber](http://uber.com) ([details](http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html))
++ [Greta](https://greta.io/)
 
 ## Issues and Support
 
